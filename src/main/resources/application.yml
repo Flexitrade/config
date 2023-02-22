@@ -1,0 +1,16 @@
+server:
+  port: 8088
+spring:
+  profiles:
+    active: native
+    
+  cloud:
+    config:
+      server:
+        git:
+          skipSslValidation: 'true'
+          tryMasterBranch: 'false'
+          refreshRate: '0'
+          defaultLabel: main
+          uri: https://github.com/Flexitrade/configurations
+          cloneOnStart: 'true'
