@@ -13,7 +13,7 @@ pipeline {
         discordSend description: "${currentBuild.fullDisplayName}", footer: "", link: env.BUILD_URL, result: currentBuild.currentResult, title: "SUCCEEDED", webhookURL: "${DISCORD_WEBHOOKURL}"
       }
       failure {
-        discordSend description: currentBuild.rawBuild.getLog(10), footer: ${currentBuild.fullDisplayName}, link: env.BUILD_URL, result: currentBuild.currentResult, title: "FAILED", webhookURL: "${DISCORD_WEBHOOKURL}"
+        discordSend description: "${currentBuild.rawBuild.getLog(10)}", footer: "${currentBuild.fullDisplayName}", link: env.BUILD_URL, result: currentBuild.currentResult, title: "FAILED", webhookURL: "${DISCORD_WEBHOOKURL}"
       }
     }
 }
