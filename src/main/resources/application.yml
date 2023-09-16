@@ -14,3 +14,6 @@ spring:
           defaultLabel: main
           uri: https://github.com/Flexitrade/configurations
           cloneOnStart: 'true'
+          repos:
+            local:
+              uri: file:///Users/mmaenz/Projects/configurations
