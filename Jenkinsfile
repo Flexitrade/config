@@ -9,6 +9,11 @@ pipeline {
     }
     
     post {
-      discordSend description: "${currentBuild.fullDisplayName}", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "${DISCORD_WEBHOOKURL}"
+      success {
+        discordSend description: "${currentBuild.fullDisplayName}", footer: "FAILED", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "${DISCORD_WEBHOOKURL}"
+      }
+      failure {
+        discordSend description: "${currentBuild.fullDisplayName}", footer: "SUCCEEDED", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "${DISCORD_WEBHOOKURL}"
+      }
     }
 }
