@@ -30,13 +30,13 @@ spring:
       - id: authentication-service
         uri: lb://authentication-service
         predicates:
-        - Path=/auth/**
+        - Path=/auth/*
         filters:
         - RewritePath=/auth/(?<path>.*), /$\{path}
       - id: usermanagement-service
         uri: lb://usermanagement-service
         predicates:
-        - Path=/usermanagement/**
+        - Path=/usermanagement/*
         filters:
         - RewritePath=/usermanagement/(?<path>.*), /$\{path}
       - id: openapi
